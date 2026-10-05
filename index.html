@@ -9,18 +9,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: flat "lakeus" horizon across the hero, then a single wide column of sections with a sticky bar.
-   COLORS ARE PLACEHOLDERS until the Boulder Porvoo palette is read from its repo: swap the tokens below. */
+/* Layout: dark hero with the tall logo beside the headline, then a single wide column of sections with a sticky bar.
+   Monochrome palette taken from the Boulder Lakeus logo (#231f20 on white), shared with sister gym Boulder Porvoo. */
 :root{
-  --ground:#f4f5f1;
-  --surface:#ffffff;
-  --ink:#16191c;
-  --muted:#5b6168;
-  --line:#dcdfd8;
-  --accent:#f2b705;      /* vilja / otteen keltainen */
-  --accent-ink:#16191c;
-  --hero:#16191c;
-  --hero-fg:#f4f5f1;
+  --ground:#ffffff;
+  --surface:#f4f3f2;
+  --ink:#231f20;
+  --muted:#5e5a5b;
+  --line:#e0dddc;
+  --accent:#231f20;
+  --accent-ink:#ffffff;
+  --hero:#231f20;
+  --hero-fg:#ffffff;
   --font-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
   --font-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
@@ -31,13 +31,11 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ground:#111315; --surface:#1a1d20; --ink:#eef0ea; --muted:#9aa1a8; --line:#2b2f33;
-    --accent:#f5c22e; --accent-ink:#111315; --hero:#0b0c0e; --hero-fg:#eef0ea; color-scheme:dark;
+    --ground:#161314; --surface:#231f20; --ink:#f4f3f2; --muted:#a9a4a5; --line:#3a3536; --accent:#ffffff; --accent-ink:#231f20; --hero:#0d0b0b; --hero-fg:#ffffff; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --ground:#111315; --surface:#1a1d20; --ink:#eef0ea; --muted:#9aa1a8; --line:#2b2f33;
-  --accent:#f5c22e; --accent-ink:#111315; --hero:#0b0c0e; --hero-fg:#eef0ea; color-scheme:dark;
+  --ground:#161314; --surface:#231f20; --ink:#f4f3f2; --muted:#a9a4a5; --line:#3a3536; --accent:#ffffff; --accent-ink:#231f20; --hero:#0d0b0b; --hero-fg:#ffffff; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -45,6 +43,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--ground);color:var(--ink);font:400 1.0625rem/1.6 var(--font-body)}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.hero a:focus-visible,.bar a:focus-visible,footer a:focus-visible{outline-color:var(--hero-fg)}
 h1,h2,h3{font-family:var(--font-display);line-height:1.05;text-wrap:balance;margin:0}
 h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;letter-spacing:-.02em}
 h3{font-size:1.25rem;font-weight:500}
@@ -53,13 +52,15 @@ p{margin:0}
 .eyebrow{font:500 .75rem/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .btn{display:inline-flex;align-items:center;gap:.5em;padding:.85em 1.3em;border-radius:999px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
+.hero .btn,.bar .btn,.callout .btn{background:var(--hero-fg);color:var(--hero)}
+.hero .btn.ghost{background:transparent;color:var(--hero-fg)}
 .btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
 
 /* Header */
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--hero) 92%,transparent);backdrop-filter:blur(10px);color:var(--hero-fg)}
 .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.8rem}
 .logo{font:800 1.2rem/1 var(--font-display);text-decoration:none;letter-spacing:-.01em}
-.logo span{color:var(--accent)}
+.logo span{font-weight:500}
 .nav{display:flex;gap:1.4rem;font-size:.95rem}
 .nav a{text-decoration:none;opacity:.85}
 .nav a:hover{opacity:1}
@@ -67,16 +68,17 @@ p{margin:0}
 
 /* Hero */
 .hero{background:var(--hero);color:var(--hero-fg);overflow:hidden}
-.hero .wrap{display:grid;gap:2rem;padding-block:clamp(3rem,8vw,6rem) 0}
-.hero-logo{width:min(100%,640px);height:auto;display:block}
+.hero .wrap{display:grid;gap:clamp(2rem,5vw,4rem);padding-block:clamp(3rem,7vw,5.5rem) 0;grid-template-columns:minmax(0,auto) minmax(0,1fr);align-items:end}
+.hero .copy{display:grid;gap:1.6rem;align-content:end;min-width:0}
+.hero .facts{grid-column:1/-1}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}}
+.hero-logo{width:clamp(180px,26vw,300px);height:auto;display:block}
 .hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:500;letter-spacing:-.02em}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 em{font-style:normal;text-decoration:underline;text-decoration-thickness:.08em;text-underline-offset:.12em}
 .hero .lead{max-width:38ch;font-size:1.2rem;opacity:.85}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem}
-.horizon{position:relative;height:clamp(90px,14vw,160px);margin-top:1rem}
-.horizon svg{position:absolute;inset:0;width:100%;height:100%}
 .facts{display:flex;flex-wrap:wrap;gap:.6rem 2rem;padding-block:1.2rem;border-top:1px solid color-mix(in srgb,var(--hero-fg) 18%,transparent);font:500 .8rem/1.4 var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
-.facts b{color:var(--accent);font-weight:500}
+.facts b{font-weight:500;font-size:1.1em}
 
 /* Sections */
 section{padding-block:clamp(3.5rem,8vw,6rem)}
@@ -110,13 +112,13 @@ section + section{border-top:1px solid var(--line)}
 .callout{background:var(--hero);color:var(--hero-fg);border-radius:var(--radius);padding:clamp(1.5rem,4vw,2.5rem);display:grid;gap:1rem}
 .grades{display:flex;flex-wrap:wrap;gap:.4rem}
 .grades span{font:500 .8rem/1 var(--font-mono);padding:.45em .7em;border-radius:6px;background:color-mix(in srgb,var(--hero-fg) 10%,transparent)}
-.grades span.on{background:var(--accent);color:var(--accent-ink)}
+.grades span.on{background:var(--hero-fg);color:var(--hero)}
 
 /* Contact */
 .contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1.5rem}
 .contact div{display:grid;gap:.35rem}
 .contact .v{font-size:1.15rem;font-weight:500;overflow-wrap:anywhere}
-.todo{background:color-mix(in srgb,var(--accent) 35%,transparent);padding:0 .25em;border-radius:4px}
+.todo{outline:2px dashed currentColor;outline-offset:2px;padding:0 .25em;border-radius:4px}
 
 /* Footer */
 footer{background:var(--hero);color:var(--hero-fg);padding-block:2.5rem}
@@ -145,28 +147,14 @@ footer a:hover{opacity:1}
 <main id="top">
   <div class="hero">
     <div class="wrap">
-      <svg class="hero-logo" viewBox="0 0 520 210" role="img" aria-label="Boulder Lakeus">
-        <g fill="currentColor" font-family="var(--font-display)" font-weight="800">
-          <text x="0" y="88" font-size="104" letter-spacing="-4">BOULDER</text>
-          <text x="0" y="192" font-size="104" letter-spacing="-4">LAKEUS</text>
-        </g>
-        <rect x="0" y="106" width="520" height="8" fill="var(--accent)"/>
-        <path d="M424 106 L448 66 L470 82 L494 56 L520 106 Z" fill="var(--accent)"/>
-      </svg>
+      <img class="hero-logo" src="assets/logo-negatiivi.svg" alt="Boulder Lakeus" width="359" height="448">
+      <div class="copy">
       <h1>Lakeudella noustaan <em>ylös.</em></h1>
       <p class="lead">Boulderointia milloin vain. Ei köysiä eikä varmistajaa, vain seinä, patja ja seuraava ote. Tule yksin tai porukalla.</p>
       <div class="ctas">
         <a class="btn" href="https://VARAUSJARJESTELMA.example" target="_blank" rel="noopener">Osta lippu tai jäsenyys</a>
         <a class="btn ghost" href="#ensikerta">Ensimmäistä kertaa?</a>
       </div>
-      <div class="horizon" aria-hidden="true">
-        <svg viewBox="0 0 1200 160" preserveAspectRatio="none">
-          <path d="M0 120 L1200 120" stroke="var(--accent)" stroke-width="3" fill="none"/>
-          <path d="M760 120 L760 40 L800 10 L840 30 L860 70 L900 60 L920 120 Z" fill="var(--hero-fg)" opacity=".1"/>
-          <g fill="var(--accent)">
-            <circle cx="790" cy="40" r="6"/><circle cx="830" cy="58" r="5"/><circle cx="810" cy="85" r="6"/><circle cx="880" cy="90" r="5"/>
-          </g>
-        </svg>
       </div>
       <div class="facts">
         <span><b>24/7</b> auki</span>

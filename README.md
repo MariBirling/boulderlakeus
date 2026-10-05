@@ -10,4 +10,4 @@ Rakenne ja hinnasto seuraavat Boulder Porvoon sivua. Ajanvaraus hoidetaan ulkois
 - Katuosoite ja paikkakunta
 - Puhelinnumero, sähköposti ja somekanavat
 - Henkilökunnan paikallaoloajat
-- Värit: vaihda `:root`-muuttujat Boulder Porvoon väreihin
+- Värit: mustavalkoinen logon mukaan (#231f20); tarkista Boulder Porvoon kanssa
