@@ -68,7 +68,8 @@ p{margin:0}
 /* Hero */
 .hero{background:var(--hero);color:var(--hero-fg);overflow:hidden}
 .hero .wrap{display:grid;gap:2rem;padding-block:clamp(3rem,8vw,6rem) 0}
-.hero h1{font-size:clamp(3rem,10vw,7.5rem);font-weight:800;letter-spacing:-.035em}
+.hero-logo{width:min(100%,640px);height:auto;display:block}
+.hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:500;letter-spacing:-.02em}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .lead{max-width:38ch;font-size:1.2rem;opacity:.85}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem}
@@ -144,8 +145,15 @@ footer a:hover{opacity:1}
 <main id="top">
   <div class="hero">
     <div class="wrap">
-      <p class="eyebrow" style="color:inherit;opacity:.7">Boulderointihalli · <span class="todo">Paikkakunta</span></p>
-      <h1>Lakeudella<br>noustaan <em>ylös.</em></h1>
+      <svg class="hero-logo" viewBox="0 0 520 210" role="img" aria-label="Boulder Lakeus">
+        <g fill="currentColor" font-family="var(--font-display)" font-weight="800">
+          <text x="0" y="88" font-size="104" letter-spacing="-4">BOULDER</text>
+          <text x="0" y="192" font-size="104" letter-spacing="-4">LAKEUS</text>
+        </g>
+        <rect x="0" y="106" width="520" height="8" fill="var(--accent)"/>
+        <path d="M424 106 L448 66 L470 82 L494 56 L520 106 Z" fill="var(--accent)"/>
+      </svg>
+      <h1>Lakeudella noustaan <em>ylös.</em></h1>
       <p class="lead">Boulderointia milloin vain. Ei köysiä eikä varmistajaa, vain seinä, patja ja seuraava ote. Tule yksin tai porukalla.</p>
       <div class="ctas">
         <a class="btn" href="https://VARAUSJARJESTELMA.example" target="_blank" rel="noopener">Osta lippu tai jäsenyys</a>
