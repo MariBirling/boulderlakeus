@@ -73,8 +73,10 @@ p{margin:0}
 .logo-tile .logo-dark,:root[data-theme="dark"] .logo-tile .logo-light{display:none}
 :root[data-theme="dark"] .logo-tile .logo-dark{display:block}
 .nav{position:fixed;inset-inline:0;top:0;z-index:1001;padding:calc(.1rem + 10px + env(safe-area-inset-top,0px)) 0 calc(.1rem + 10px + 3rem);
-  background:rgba(11,65,81,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  background:rgba(11,65,81,.1);-webkit-backdrop-filter:blur(10px);
   -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%);pointer-events:none}
+/* Kept in its own block: the CSS minifier otherwise keeps only the -webkit- version, and Chrome/Firefox lose the blur. */
+@supports (backdrop-filter:blur(1px)){.nav{backdrop-filter:blur(10px)}}
 .nav ul{pointer-events:auto;list-style:none;display:flex;gap:2rem;margin:0;padding:.75rem 1rem 0;position:absolute;left:50%;transform:translateX(-50%);top:calc(.1rem + 10px + env(safe-area-inset-top,0px));white-space:nowrap}
 .nav ul a{color:var(--white);text-decoration:none;font:600 1rem/1 var(--font-head);position:relative;display:block;text-shadow:0 2px 4px rgba(0,0,0,.5),0 -1px 3px rgba(0,0,0,.4),0 0 10px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.6)}
 .nav ul a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--sand);transition:width .3s ease}
