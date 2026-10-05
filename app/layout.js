@@ -29,13 +29,19 @@ export const viewport = { themeColor: "#0B4151" };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fi">
+    <html lang="fi" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap"
+        />
+        {/* Apply the saved theme before first paint, so the page doesn't flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
         />
       </head>
       <body>{children}</body>
