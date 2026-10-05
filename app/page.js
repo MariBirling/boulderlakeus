@@ -21,7 +21,7 @@ export default function Home() {
       <JsonLd />
 
       <a className="logo-tile" href="#top" aria-label="Boulder Lakeus etusivu">
-        <img src="/assets/logo.svg" alt="Boulder Lakeus" width="160" height="200" />
+        <img src="/assets/logo.svg" alt="Boulder Lakeus" width="112" height="140" />
       </a>
 
       <Nav bookingUrl={site.bookingUrl} />
