@@ -55,8 +55,8 @@ p{margin:0}
 .btn-small{padding:.6rem 1.2rem;font-size:.9rem}
 
 /* Logo + nav */
-.logo-tile{position:absolute;left:40px;top:10px;z-index:30;display:block;background:var(--white);padding:10px 12px;border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow-1)}
-.logo-tile img{display:block;height:180px;width:auto}
+.logo-tile{position:absolute;left:40px;top:10px;z-index:30;display:block}
+.logo-tile img{display:block;height:200px;width:auto}
 .nav{position:fixed;inset-inline:0;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:rgba(11,65,81,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s ease,box-shadow .3s ease}
 .nav.is-solid{background:var(--blue);box-shadow:var(--shadow-1)}
 .nav .inner{display:flex;align-items:center;justify-content:flex-end;gap:2rem;min-height:72px;padding-inline:40px}
@@ -66,8 +66,8 @@ p{margin:0}
 .nav ul a:hover::after{width:100%}
 @media (max-width:1100px){.nav ul{display:none}}
 @media (max-width:700px){
-  .logo-tile{left:16px;padding:8px 9px}
-  .logo-tile img{height:120px}
+  .logo-tile{left:16px}
+  .logo-tile img{height:130px}
   .nav .inner{padding-inline:16px;min-height:64px}
 }
 
@@ -157,7 +157,7 @@ footer .legal{flex-basis:100%;border-top:1px solid rgba(255,255,255,.15);padding
 </head>
 <body>
 
-<a class="logo-tile" href="#top" aria-label="Boulder Lakeus etusivu"><img src="assets/logo.svg" alt="Boulder Lakeus" width="144" height="180"></a>
+<a class="logo-tile" href="#top" aria-label="Boulder Lakeus etusivu"><img src="assets/logo.svg" alt="Boulder Lakeus" width="160" height="200"></a>
 
 <header class="nav" id="nav">
   <div class="inner">
