@@ -21,7 +21,7 @@ npm run build    # staattinen sivu kansioon out/
 - `app/layout.js`: hakukoneiden metatiedot ja Open Graph
 - `components/JsonLd.js`: rakenteinen data (SportsActivityLocation + FAQPage)
 - `app/sitemap.js`, `app/robots.js`: sitemap.xml ja robots.txt
-- `public/assets/`: logot ja jakokuva (og.png)
+- `public/assets/`: lopullinen logo (`logo-nelio.png` musta, `logo-nelio-valkoinen.png` valkoinen) ja jakokuva (og.png)
 
 ## Täydennettävät tiedot (`data/site.js`)
 

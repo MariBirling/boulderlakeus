@@ -261,7 +261,7 @@ export default function Home() {
 
       <footer>
         <div className="container">
-          <img src="/assets/logo-negatiivi.svg" alt="Boulder Lakeus" width="96" height="120" />
+          <img src="/assets/logo-nelio-valkoinen.png" alt="Boulder Lakeus" width="114" height="150" />
           <div className="cols">
             <div>
               <h3>Sivusto</h3>

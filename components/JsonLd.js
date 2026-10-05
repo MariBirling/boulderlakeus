@@ -9,7 +9,7 @@ export default function JsonLd() {
     name: site.name,
     description: "Boulderointihalli Lakeudella, auki 24/7.",
     url: site.url,
-    logo: `${site.url}/assets/logo.svg`,
+    logo: `${site.url}/assets/logo-nelio.png`,
     image: `${site.url}/assets/og.png`,
     email: site.email,
     ...(site.phone && { telephone: site.phone }),

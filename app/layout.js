@@ -22,7 +22,7 @@ export const metadata = {
     images: [{ url: "/assets/og.png", width: 1200, height: 630, alt: "Boulder Lakeus" }],
   },
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/assets/logo.svg" },
+  icons: { icon: "/assets/logo-nelio.png" },
 };
 
 export const viewport = { themeColor: "#0B4151" };
