@@ -10,4 +10,9 @@ Rakenne ja hinnasto seuraavat Boulder Porvoon sivua. Ajanvaraus hoidetaan ulkois
 - Katuosoite ja paikkakunta
 - Puhelinnumero, sähköposti ja somekanavat
 - Henkilökunnan paikallaoloajat
-- Värit: mustavalkoinen logon mukaan (#231f20); tarkista Boulder Porvoon kanssa
+- Paikallisen kiipeilyseuran nimi ja linkki
+- Pysäköintiohjeet
+
+## Ilme
+
+Sisarhalli Boulder Porvoon kanssa: RAL 5020 -sininen `#0B4151`, koivuvaneribeige `#E9E1D1`, fontit Montserrat ja Roboto, iso logo vasemmassa yläkulmassa, aaltoreunaiset osiot.
