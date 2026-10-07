@@ -4,17 +4,18 @@
 export const site = {
   name: "Boulder Lakeus",
   url: "https://boulderlakeus.fi", // TODO: confirm the domain
-  bookingUrl: "https://VARAUSJARJESTELMA.example", // TODO: booking system link
-  email: "info@boulderlakeus.fi", // TODO: confirm
+  bookingUrl: "https://boulderlakeus.gymkeeper.fi",
+  // false hides every sign-up, login and booking link until pre-sale opens. Set to true to show them.
+  salesOpen: false,
+  email: "info@boulderlakeus.fi",
   phone: null, // TODO: "+358 40 000 0000"
   address: {
-    street: "Katuosoite 1", // TODO
-    postalCode: "00000", // TODO
-    city: "Paikkakunta", // TODO
+    street: "Valtionkatu 1",
+    postalCode: "60100",
+    city: "Seinäjoki",
     country: "FI",
   },
   social: ["https://www.facebook.com/profile.php?id=61594761286565"],
-  club: { name: null, url: null }, // TODO: local climbing club
   parking: null, // TODO: parking instructions
   sister: { name: "Boulder Porvoo", url: "https://boulderporvoo.fi/" },
 };
@@ -37,7 +38,6 @@ export const prices = {
     junior: 85,
   },
   firstTimerCard: { adult: 39, discount: 31.5, junior: 24.5 },
-  courses: { beginner: 79, technique: 145 },
   other: { shoeRental: 5, chalkBagRental: 2 },
 };
 
@@ -128,9 +128,5 @@ export const faq = [
   {
     q: "Voivatko lapset kiipeillä?",
     a: "Voivat. Alle 14-vuotiaat ovat tervetulleita kiipeilemään aikuisen valvonnassa. Alle 7-vuotiaat kiipeävät ilmaiseksi maksavan aikuisen seurassa.",
-  },
-  {
-    q: "Järjestättekö kursseja?",
-    a: `Kyllä. Alkeiskurssi (${eur(prices.courses.beginner)}) opettaa turvallisen kiipeilyn ja perustekniikat. Tekniikkakurssi (${eur(prices.courses.technique)}) on noin 6A–6C-tasolla kiipeileville. Kurssit varataan varausjärjestelmästä.`,
   },
 ];

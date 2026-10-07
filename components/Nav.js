@@ -7,7 +7,6 @@ const LINKS = [
   ["#tietoa", "Tietoa"],
   ["#tilat", "Tilat"],
   ["#hinnasto", "Hinnasto"],
-  ["#kurssit", "Kurssit"],
   ["#ukk", "UKK"],
   ["#loyda-meidat", "Löydä meidät"],
   ["#yhteystiedot", "Yhteystiedot"],
@@ -68,9 +67,11 @@ export default function Nav({ bookingUrl }) {
         >
           {dark ? <Moon /> : <Sun />}
         </button>
-        <a className="nav-cta" href={bookingUrl} target="_blank" rel="noopener">
-          Kirjaudu sisään<br />/ rekisteröidy
-        </a>
+        {bookingUrl && (
+          <a className="nav-cta" href={bookingUrl} target="_blank" rel="noopener">
+            Kirjaudu sisään<br />/ rekisteröidy
+          </a>
+        )}
         <button type="button" className="menu-toggle" onClick={() => setOpen(true)} aria-label="Avaa valikko" aria-expanded={open}>
           <Burger />
         </button>
@@ -82,7 +83,7 @@ export default function Nav({ bookingUrl }) {
           {LINKS.map(([href, label]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
           ))}
-          <a href={bookingUrl} target="_blank" rel="noopener">Kirjaudu sisään / rekisteröidy</a>
+          {bookingUrl && <a href={bookingUrl} target="_blank" rel="noopener">Kirjaudu sisään / rekisteröidy</a>}
         </div>
       )}
     </>

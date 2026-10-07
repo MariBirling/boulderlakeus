@@ -25,7 +25,7 @@ export default function Home() {
         <img className="logo-dark" src="/assets/logo-nelio-valkoinen.png" alt="" width="152" height="200" />
       </a>
 
-      <Nav bookingUrl={site.bookingUrl} />
+      <Nav bookingUrl={site.salesOpen ? site.bookingUrl : null} />
 
       <main id="top">
         <div className="hero">
@@ -35,12 +35,16 @@ export default function Home() {
             <p className="hero__lead">
               Kiipeile milloin haluat <strong>24/7</strong>
             </p>
-            <p className="hero__info">
-              Rekisteröidy käyttäjäksi ja tallenna webappi puhelimesi kotiruutuun. Se toimii jatkossa
-              avaimenasi, ja sieltä ostat pääsyliput ja vuosijäsenyydet.
-            </p>
+            {site.salesOpen ? (
+              <p className="hero__info">
+                Rekisteröidy käyttäjäksi ja tallenna webappi puhelimesi kotiruutuun. Se toimii jatkossa
+                avaimenasi, ja sieltä ostat pääsyliput ja vuosijäsenyydet.
+              </p>
+            ) : (
+              <p className="hero__info">Halli avautuu vielä vuoden 2026 aikana. Kerromme ennakkomyynnin alkamisesta somessa.</p>
+            )}
             <div className="hero__ctas">
-              <Ext className="btn btn-hero">Tuttu juttu. Suoraan kiipeilemään</Ext>
+              {site.salesOpen && <Ext className="btn btn-hero">Tuttu juttu. Suoraan kiipeilemään</Ext>}
               <a className="btn btn-hero-outline" href="#tietoa">Eka kerta? Lue lisää</a>
             </div>
           </div>
@@ -67,7 +71,6 @@ export default function Home() {
               </p>
               <p className="mt-1">
                 Kiipeily tapahtuu ilman varmistusta, ja turvallisuudesta huolehtivat pehmeät patjat.
-                Tarjoamme myös yksityistunteja, tapahtumia ja ohjattuja ryhmäkursseja.
               </p>
             </div>
             <div className="note-card">
@@ -79,7 +82,7 @@ export default function Home() {
                 <li>Lue hallin turvaohjeet, lämmittele ja aloita helpoimmista reiteistä.</li>
               </ol>
               <p>Alle 14-vuotiaat ovat tervetulleita kiipeilemään aikuisen valvonnassa.</p>
-              <Ext className="btn btn-primary btn-small self-start">Rekisteröidy</Ext>
+              {site.salesOpen && <Ext className="btn btn-primary btn-small self-start">Rekisteröidy</Ext>}
             </div>
           </div>
           <Wave className="cap-white" />
@@ -108,7 +111,6 @@ export default function Home() {
               <article className="card">
                 <h3>Yhteisö</h3>
                 <p>Täällä kiipeilijät kohtaavat, jakavat kokemuksiaan ja kannustavat toisiaan.</p>
-                <span className="chip">{site.club.name ?? <Todo>Paikallinen kiipeilyseura</Todo>}</span>
               </article>
             </div>
           </div>
@@ -120,7 +122,7 @@ export default function Home() {
             <div className="section-head">
               <span className="tag">Hinnasto</span>
               <h2 className="section-title">Löydä sinulle sopivin tapa kiipeillä</h2>
-              <p>Tutustu hinnastoon ja valitse apista sinulle sopivin lipputyyppi.</p>
+              <p>{site.salesOpen ? "Tutustu hinnastoon ja valitse apista sinulle sopivin lipputyyppi." : "Tutustu hinnastoon. Lippujen myynti alkaa myöhemmin."}</p>
             </div>
             <div className="price-grid">
               {priceCards.map((card) => (
@@ -143,53 +145,22 @@ export default function Home() {
             <div className="price-notes">
               <p>Alle 7-vuotiaat ilmaiseksi maksavan aikuisen seurassa.</p>
               <p>Hinnat sisältävät alv:n. Varaudu näyttämään alennukseen oikeuttava todistus.</p>
-              <div className="links">
-                <Ext>Käyttö- ja jäsenehdot</Ext>
-                <Ext>Verkkokaupan toimitus- ja maksuehdot</Ext>
-              </div>
-              <p className="price-cta">
-                <Ext className="btn btn-primary">Osta lippu apista</Ext>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="kurssit">
-          <div className="container">
-            <div className="section-head">
-              <span className="tag">Kurssit</span>
-              <h2 className="section-title">Tulossa kurssille?</h2>
-              <p>Tarkista kurssien hinnat ja ajankohdat. Kurssit varataan varausjärjestelmästä.</p>
-            </div>
-            <div className="cards">
-              <article className="card">
-                <span className="chip">Aloittelija</span>
-                <h3>Alkeiskurssi</h3>
-                <p>Tutustu kiipeilyn perusteisiin ja aloita kiipeilymatkasi turvallisesti ohjatun kurssin avulla. Sisältää sisäänpääsyn, vuokrakengät ja mankan.</p>
-                <p className="course-price">{eur(prices.courses.beginner)} <small>sis. alv</small></p>
-                <Ext className="btn btn-primary btn-small self-start">Varaa kurssi</Ext>
-              </article>
-              <article className="card">
-                <span className="chip">Keskitaso</span>
-                <h3>Tekniikkakurssi</h3>
-                <p>Kehitä kiipeilytekniikkaasi 2 × 2 h intensiivikurssilla. Sopii noin 6A–6C-tasolla kiipeilevälle. Pienryhmä, max 8 osallistujaa.</p>
-                <p className="course-price">{eur(prices.courses.technique)} <small>sis. alv</small></p>
-                <Ext className="btn btn-primary btn-small self-start">Varaa kurssi</Ext>
-              </article>
-              <article className="card">
-                <span className="chip">Junnutreenit</span>
-                <h3>Ohjatut treenit</h3>
-                <p>Osallistu paikallisen kiipeilyseuran järjestämiin ohjattuihin harrastus- ja kilpatreeneihin.</p>
-                <p>
-                  {site.club.url ? <Ext href={site.club.url}>{site.club.name}</Ext> : <Todo>Seuran nimi ja linkki</Todo>}
-                </p>
-              </article>
+              {site.salesOpen && (
+                <>
+                  <div className="links">
+                    <Ext>Käyttö- ja jäsenehdot</Ext>
+                    <Ext>Verkkokaupan toimitus- ja maksuehdot</Ext>
+                  </div>
+                  <p className="price-cta">
+                    <Ext className="btn btn-primary">Osta lippu apista</Ext>
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </section>
 
         <section id="ukk" className="beige">
-          <Wave className="wave-top" />
           <div className="container">
             <div className="section-head">
               <span className="tag">UKK</span>
@@ -216,7 +187,7 @@ export default function Home() {
             <div className="cards">
               <article className="card">
                 <h3>Osoite</h3>
-                <p><Todo>{address}</Todo></p>
+                <p>{address}</p>
                 <Ext
                   className="btn btn-primary btn-small self-start"
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Boulder Lakeus " + address)}`}
@@ -244,7 +215,7 @@ export default function Home() {
               <h2 className="section-title">Ota yhteyttä</h2>
             </div>
             <address className="info-grid" style={{ fontStyle: "normal" }}>
-              <div className="info"><span className="tag">Sijainti</span><span className="v"><Todo>{address}</Todo></span></div>
+              <div className="info"><span className="tag">Sijainti</span><span className="v">{address}</span></div>
               <div className="info"><span className="tag">Aukioloajat</span><span className="v">24/7</span></div>
               <div className="info"><span className="tag">Sähköposti</span><span className="v"><a href={`mailto:${site.email}`}>{site.email}</a></span></div>
               <div className="info">
@@ -269,17 +240,24 @@ export default function Home() {
               <ul>
                 <li><a href="#tietoa">Tietoa</a></li>
                 <li><a href="#hinnasto">Hinnasto</a></li>
-                <li><a href="#kurssit">Kurssit</a></li>
                 <li><a href="#ukk">UKK</a></li>
                 <li><a href="#yhteystiedot">Yhteystiedot</a></li>
               </ul>
             </div>
+            {site.salesOpen && (
+              <div>
+                <h3>Ohjeet ja ehdot</h3>
+                <ul>
+                  <li><Ext>Käyttöohjeet</Ext></li>
+                  <li><Ext>Käyttö- ja jäsenehdot</Ext></li>
+                  <li><Ext>Verkkokaupan ehdot</Ext></li>
+                </ul>
+              </div>
+            )}
             <div>
-              <h3>Ohjeet ja ehdot</h3>
+              <h3>Yhteystiedot</h3>
               <ul>
-                <li><Ext>Käyttöohjeet</Ext></li>
-                <li><Ext>Käyttö- ja jäsenehdot</Ext></li>
-                <li><Ext>Verkkokaupan ehdot</Ext></li>
+                <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
               </ul>
             </div>
             <div>

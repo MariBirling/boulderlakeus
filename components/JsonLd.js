@@ -34,7 +34,6 @@ export default function JsonLd() {
       ["Ensikertalaisten kortti, aikuinen", prices.firstTimerCard.adult],
       ["10x kertakortti, aikuinen", prices.tenVisitCard.adult],
       ["Kuukausikortti, aikuinen", prices.monthlyCard.adult],
-      ["Alkeiskurssi", prices.courses.beginner],
     ].map(([name, price]) => ({
       "@type": "Offer",
       name,

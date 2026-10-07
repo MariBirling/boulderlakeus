@@ -2,7 +2,7 @@ import "./globals.css";
 import { site } from "@/data/site";
 
 const description =
-  "Boulder Lakeus on boulderointihalli Lakeudella, auki 24/7. Kertakäynnit, sarjakortit, vuosijäsenyydet ja kurssit. Boulder Porvoon sisarhalli.";
+  "Boulder Lakeus on boulderointihalli Lakeudella, auki 24/7. Kertakäynnit, sarjakortit ja vuosijäsenyydet. Boulder Porvoon sisarhalli.";
 
 export const metadata = {
   metadataBase: new URL(site.url),
