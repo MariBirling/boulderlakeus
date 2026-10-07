@@ -1,5 +1,21 @@
 # Boulder Lakeus
 
+> **Arkistoitu — tämä projekti ei ole enää käytössä.**
+>
+> Boulder Lakeuden sivusto tehdään nyt samasta koodipohjasta kuin Boulder
+> Porvoon sivusto, projektissa `boulderporvoo_site`. Molemmat hallit
+> julkaistaan sieltä yhdellä komennolla:
+>
+> ```bash
+> cd ~/Documents/projects/boulderporvoo_site && ./deploy.sh
+> ```
+>
+> Julkaisuskripti on poistettu tästä projektista, koska se kopioi
+> `--delete`-lipulla samaan hakemistoon `/var/www/boulderlakeus` ja pyyhkisi
+> ajettaessa uuden sivuston. Tämä projekti on jäljellä vain lähteenä, josta
+> tekstit ja tiedot on siirretty.
+
+
 Boulder Lakeus -kiipeilyhallin verkkosivu. Tehty Next.js:llä (App Router) ja käännetään staattiseksi sivuksi hakukonenäkyvyyttä (SEO) ja tekoälyhakuja (AEO) varten.
 
 Rakenne, ilme ja hinnasto seuraavat sisarhalli Boulder Porvoota. Ajanvaraus hoidetaan ulkoisessa varausjärjestelmässä, johon sivulta linkitetään.
