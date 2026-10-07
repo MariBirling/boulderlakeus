@@ -145,6 +145,7 @@ export default function Home() {
             <div className="price-notes">
               <p>Alle 7-vuotiaat ilmaiseksi maksavan aikuisen seurassa.</p>
               <p>Hinnat sisältävät alv:n. Varaudu näyttämään alennukseen oikeuttava todistus.</p>
+              <p>Liput käyvät myös sisarhallissamme <Ext href={site.sister.url}>{site.sister.name}</Ext>.</p>
               {site.salesOpen && (
                 <>
                   <div className="links">
