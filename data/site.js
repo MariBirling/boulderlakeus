@@ -13,7 +13,7 @@ export const site = {
     city: "Paikkakunta", // TODO
     country: "FI",
   },
-  social: [], // TODO: e.g. "https://www.instagram.com/boulderlakeus/"
+  social: ["https://www.facebook.com/profile.php?id=61594761286565"],
   club: { name: null, url: null }, // TODO: local climbing club
   parking: null, // TODO: parking instructions
   sister: { name: "Boulder Porvoo", url: "https://boulderporvoo.fi/" },
